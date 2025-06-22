@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
@@ -14,9 +14,12 @@ def signin(request):
             messages.success(request, 'You have successfully logged in.')
             return render(request, 'dashboard_admin.html')
         else:
-            messages.error(request, 'Invalid credentials')
-            return render(request, 'signin.html')
+            messages.error(request, 'Invalid credentials, please register first.')
+            return redirect(request, 'signup.html')
     return render(request, 'signin.html')
+
+def signup(request):
+    return render(request,'signup.html')
 
 def index(request):
     return render(request, 'index.html')
