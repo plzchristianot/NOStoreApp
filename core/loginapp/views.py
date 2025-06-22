@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from .models import User
 
 # Create your views here.
 def signin(request):
@@ -19,6 +20,14 @@ def signin(request):
     return render(request, 'signin.html')
 
 def signup(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        # # Create a new user
+        # user = User.objects.create_user(username=username, password=password)
+        # user.save()
+
     return render(request,'signup.html')
 
 def index(request):
