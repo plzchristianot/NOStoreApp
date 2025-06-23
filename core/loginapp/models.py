@@ -5,3 +5,20 @@ class User(models.Model):
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
+    picture_url = models.CharField(max_length=300, null=True, blank=True)
+    role = models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
+    address = models.ForeignKey('Address', on_delete=models.CASCADE, null=True, blank=True)
+
+class Role(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+
+class Address(models.Model):
+    street = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
+    zip_code = models.BigIntegerField(null=False, blank=False)
+    ext_number = models.IntegerField(null=False, blank=False)
+    int_number = models.IntegerField(null=False, blank=False)
+    country = models.CharField(max_length=200)
+    neighborhood = models.CharField(max_length=200)

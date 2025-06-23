@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt', 
     'rest_framework',
     'loginapp',
+    'shopapp',
+    'deliveryapp'
 ]
 
 REST_FRAMEWORK = {
