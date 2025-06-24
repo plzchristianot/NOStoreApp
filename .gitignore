@@ -5,3 +5,4 @@ package.json
 .vscode/
 .gitignore
 .env
+__pycache__/

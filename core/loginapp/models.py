@@ -2,9 +2,11 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    username = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    username = models.CharField(max_length=200, null=False, blank=False)
+    first_name = models.CharField(max_length=200, null=False, blank=False)
+    last_name = models.CharField(max_length=200, null=False, blank=False)
+    password = models.CharField(max_length=200, null=False, blank=False)
+    email = models.CharField(max_length=200, null=False, blank=False)
     picture_url = models.CharField(max_length=300, null=True, blank=True)
     role = models.ForeignKey('Role', on_delete=models.CASCADE, default=1)
     address = models.ForeignKey('Address', on_delete=models.CASCADE, null=True, blank=True)
